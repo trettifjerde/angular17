@@ -1,0 +1,34 @@
+<app-header/>
+<main>
+    <ul id="users">
+        @for (user of users; track user.id) {
+            <li>
+                <app-user [user]="user" [isSelected]="!!selectedUser && selectedUser.id === user.id" (select)="onSelectUser($event)"/>
+            </li>
+        }
+    </ul>
+
+    @if (selectedUser) {
+        <app-tasks [selectedUser]="selectedUser" />
+    }
+    @else {
+        <p id="fallback">No user selected</p>
+    }
+</main>
+
+<!-- 
+    OLDER VERSIONS' CONDITIONAL / ITERATION DIRECTIVES
+
+<main>
+    <ul id="users">
+        <li *ngFor="let user of users">
+            <app-user [user]="user" (select)="onSelectUser($event)" />
+        </li>
+    </ul>
+</main>
+<app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name" />
+<ng-template #fallback>
+    <p>No user selected</p>
+</ng-template> 
+
+-->
