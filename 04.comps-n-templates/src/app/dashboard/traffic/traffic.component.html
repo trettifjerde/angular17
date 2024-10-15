@@ -1,0 +1,19 @@
+<app-dashboard-item
+    heading="Traffic"
+    [image]="{src: 'globe.png', alt: 'A globe'}"
+>
+
+    <div id="traffic">
+        <p>Last 7 days</p>
+    
+        <div id="chart">
+            @for (dataPoint of trafficData; track dataPoint.id) {
+                <div
+                    [style.height]="getColumnHeight(dataPoint.value)"
+                >
+                </div>
+            }
+        </div>
+    </div>
+
+</app-dashboard-item>
