@@ -3,10 +3,10 @@
     [image]="{src: 'globe.png', alt: 'A globe'}"
 >
 
-    <div id="traffic">
+    <div class="traffic">
         <p>Last 7 days</p>
     
-        <div id="chart">
+        <div class="chart">
             @for (dataPoint of trafficData; track dataPoint.id) {
                 <div
                     [style.height]="getColumnHeight(dataPoint.value)"

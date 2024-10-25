@@ -11,4 +11,13 @@ import { DashboardItemComponent } from '../dashboard-item/dashboard-item.compone
 })
 export default class ServerStatusComponent {
   @Input({required: true}) currentStatus!: ServerStatus;
+
+  getClasses() {
+    return {
+      status: true,
+      'status-online': this.currentStatus === 'online',
+      'status-offline': this.currentStatus === 'offline',
+      'status-unknown': this.currentStatus === 'unknown'
+    }
+  }
 }

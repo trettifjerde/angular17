@@ -1,9 +1,9 @@
-#traffic {
+.traffic {
     display: block;
     width: 15rem;
 }
 
-#chart {
+.chart {
     height: 10rem;
     display: flex;
     align-items: flex-end;
@@ -12,7 +12,7 @@
     border-bottom: 1px solid #76737a;
 }
 
-#chart div {
+.chart div {
     flex: 1;
     background: linear-gradient(to bottom, #36166f, #ca19a4);
     border-top-left-radius: 4px;
@@ -20,7 +20,7 @@
 }
 
 @media (min-width: 768px) {
-    #traffic {
+    .traffic {
         width: 20rem;
     }
 }
