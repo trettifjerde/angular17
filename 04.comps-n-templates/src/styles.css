@@ -40,22 +40,23 @@ header {
 #dashboard {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
   gap: 1.5rem;
-  max-width: 85rem;
 }
 
 @media (min-width: 768px) {
   #dashboard {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    align-items: flex-start;
+    max-width: 85rem;
+    margin-inline: auto;
   }
 }
 
 p {
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
-  color: #4f4b53;
 }
 
 h2 {

@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TrafficInfo } from '../../../utils/types';
-import { DashboardItemComponent } from '../dashboard-item/dashboard-item.component';
 
 @Component({
   selector: 'app-traffic',
   standalone: true,
-  imports: [DashboardItemComponent],
   templateUrl: './traffic.component.html',
   styleUrl: './traffic.component.css'
 })
