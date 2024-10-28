@@ -2,7 +2,7 @@
     <ul>
         @for (ticket of tickets; track ticket.id) {
             <li>
-                <app-ticket [ticket]="ticket"/>
+                <app-ticket [ticket]="ticket" (markComplete)="onMarkComplete(ticket.id)"/>
             </li>
         }
         @empty {
@@ -13,4 +13,4 @@
     </ul>
 </div>
 
-<app-new-ticket (addTicket)="addTicket($event)" />
+<app-new-ticket (addTicket)="onAddTicket($event)" />

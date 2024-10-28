@@ -11,15 +11,27 @@ import { Ticket, TicketData } from '../../../utils/types';
   styleUrl: './tickets.component.css'
 })
 export default class TicketsComponent {
-  tickets : Ticket[] = [];
+  tickets: Ticket[] = [];
 
-  addTicket(ticket: TicketData) {
+  onAddTicket(ticket: TicketData) {
     this.tickets.push({
       id: new Date().getTime().toString(),
       status: 'open',
       ...ticket
     });
+  }
 
-    console.dir(this.tickets);
+  onMarkComplete(id: string) {
+    const ticketI = this.tickets.findIndex(t => t.id === id);
+
+    if (ticketI === -1)
+      return;
+
+    const ticket = this.tickets[ticketI];
+    
+    this.tickets.splice(ticketI, 1, { 
+      ...ticket, 
+      status: 'closed' 
+    });
   }
 }

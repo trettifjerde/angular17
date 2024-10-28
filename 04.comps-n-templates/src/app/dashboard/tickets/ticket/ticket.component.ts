@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Ticket } from '../../../../utils/types';
 
 @Component({
@@ -9,10 +9,15 @@ import { Ticket } from '../../../../utils/types';
   styleUrl: './ticket.component.css'
 })
 export class TicketComponent {
-  open = false;
+  isOpen = false;
   @Input({required: true}) ticket! : Ticket;
+  @Output() markComplete = new EventEmitter<void>()
 
   toggleSpoiler() {
-    this.open = !this.open;
+    this.isOpen = !this.isOpen;
+  }
+
+  onMarkComplete() {
+    this.markComplete.emit();
   }
 }
