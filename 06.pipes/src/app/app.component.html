@@ -1,0 +1,31 @@
+<main>
+  <article class="temperatures">
+    <header>
+      <img src="temp-icon.png" alt="Thermometer icon" />
+      <div>
+        <h2>Current Temperatures</h2>
+        <p>{{ currentDate | date: 'medium'}}</p>
+      </div>
+    </header>
+    <p>New York: {{ currentTemperaturs.newYork | temp: 'C':'F' }}</p>
+    <p>Berlin: {{ currentTemperaturs.berlin | temp: 'C':'F' }}</p>
+    <p>Paris: {{ currentTemperaturs.paris | temp: 'F' }}</p>
+    <p>Chicago: {{ currentTemperaturs.chicago | temp: 'F' }}</p>
+  </article>
+
+  <article class="temperatures">
+    <header>
+      <img src="temp-icon.png" alt="Thermometer icon" />
+      <div>
+        <h2>Historic Temperatures</h2>
+        <p>Berlin</p>
+      </div>
+    </header>
+    <ul>
+      <!-- not the best use case for pipes though -->
+      @for (temperature of historicTemperatures | sort: 'desc'; track $index) {
+      <li (click)="onReset(temperature)">{{ temperature | temp: 'C' }}</li>
+      }
+    </ul>
+  </article>
+</main>
